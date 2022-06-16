@@ -86,4 +86,25 @@ const updateRecord = async (request, response)=> {
   }
 };
 
-export { getAll, createRecord, getById, updateRecord };
+// /user/:id 
+const deleteRecord = async (request, response)=> {
+  try{
+    const { id } = request.params;
+
+   await usersModel.destroy({
+      where: {
+        id,
+      },
+    })
+   
+    return response.status(200).json({
+      message: `Se elimino el usuario con el ID: ${id}`,
+    });
+  }catch (error) {
+    return response.statu(500).json({
+      message: error.messsage,
+    });
+  }
+};
+
+export { getAll, createRecord, getById, updateRecord, deleteRecord };
