@@ -1,5 +1,5 @@
 // CRUD
-import { request } from "express";
+import { request, response } from "express";
 import { usersModel } from "../models/users.js";
 
 const getAll = async (request, response) => {
@@ -31,4 +31,24 @@ const createRecord = async (request, response) => {
   }
 };
 
-export { getAll, createRecord };
+const getById = async (request, response)=> {
+  try{
+    // /user/:id
+    const { id } = request.params;
+
+    const record = await usersModel.findOne({
+      where: {
+        id
+      },
+    })
+    // SELECT * FROM users WHERE id = :id
+
+    return response.status(200).json(record);
+  }catch (error) {
+    return response.statu(500).json({
+      message: error.messsage,
+    });
+  }
+};
+
+export { getAll, createRecord, getById };
