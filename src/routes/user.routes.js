@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getAll, createRecord, getById } from '../controllers/user.controller.js';
+import { getAll, createRecord, getById, updateRecord } from '../controllers/user.controller.js';
 
 const router = Router();
 
@@ -7,5 +7,6 @@ const router = Router();
 router.get("/", getAll);
 router.post("/", createRecord);
 router.get("/:id", getById);
+router.put("/:id", updateRecord);
 
 export default router;

@@ -51,4 +51,39 @@ const getById = async (request, response)=> {
   }
 };
 
-export { getAll, createRecord, getById };
+const updateRecord = async (request, response)=> {
+  try{
+    // /user/:id - body request
+    const { id } = request.params;
+    const { name, lastName, userName } = request.body;
+//primera forma
+//     const record = await usersModel.findByPk(id);
+//       record.name = name,
+//       record.lastName = lastName,
+//       record.userName = userName,
+//       await record.save() 
+// //segunda forma
+     await usersModel.update(
+      {
+        name,
+        lastName,
+        userName,
+      },
+      {
+        where:{
+          id,
+        }, 
+      }
+     );
+
+    return response.status(200).json({
+      message: `Se actualizo el usuario con el ID: ${id}`,
+    });
+  }catch (error) {
+    return response.statu(500).json({
+      message: error.messsage,
+    });
+  }
+};
+
+export { getAll, createRecord, getById, updateRecord };
