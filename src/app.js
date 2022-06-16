@@ -1,3 +1,4 @@
+//instancia de express
 import express from 'express';
 import morgan from 'morgan';
 
