@@ -1,8 +1,10 @@
 import express from 'express';
-import 'dotenv/config';
+import morgan from 'morgan';
 
 const app = express();
 //middleware
+app.use(morgan('dev'));
 app.use(express.json());
+
 
 export default app;
