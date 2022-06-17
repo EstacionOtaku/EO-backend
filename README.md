@@ -1,0 +1,20 @@
+# EO-BACKEND
+
+## .env
+
+```
+NODE_ENV='development'
+NODE_PORT=8001
+NODE_LOG='dev'
+
+DB_NAME='nekocoders'
+DB_USER=''
+DB_PASSWORD=''
+DB_HOST=''
+DB_PORT=5432
+DB_CONNECTION='postgres'
+
+JWT_SECRET='tecsup'
+ACCESS_EXPIRE='6h'
+REFRESH_EXPIRE='1d'
+```
