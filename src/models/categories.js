@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.hasMany(models.animes,{
+        foreignKey: 'category_id',
+      });
     }
   }
   categories.init({
@@ -24,6 +27,10 @@ module.exports = (sequelize, DataTypes) => {
     description: {
       type: DataTypes.STRING(255),
       allowNull: true,
+    },
+    is_active: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
     },
   },
    {

@@ -1,4 +1,4 @@
-import { animes } from "../models";
+import { animes, categories } from "../models";
 
 class AnimeController {
     constructor() {
@@ -7,7 +7,9 @@ class AnimeController {
 
     async getAll(request, response) {
         try{
-            const records = await this.model.findAll();
+            const records = await this.model.findAll({
+                include: categories,
+            });
             return response.status(200).json(records);
         } catch (error){
             return response.status(500).json({

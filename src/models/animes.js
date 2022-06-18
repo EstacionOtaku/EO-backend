@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.categories, {
+        foreignKey: 'category_id',
+        targetKey: 'id',
+      });
     }
   }
   animes.init(
@@ -32,6 +36,9 @@ module.exports = (sequelize, DataTypes) => {
       is_active:{
         type: DataTypes.BOOLEAN,
         defaultValue: true,
+      },
+      category_id: {
+        type: DataTypes.INTEGER,
       },
     },
     {

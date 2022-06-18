@@ -9,7 +9,19 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(120),
+      },
+      image: {
+        type: Sequelize.STRING(150),
+        allowNull: true,
+      },
+      description: {
+        type: Sequelize.STRING(255),
+        allowNull: true,
+      },
+      is_active: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true,
       },
       created_at: {
         allowNull: false,
