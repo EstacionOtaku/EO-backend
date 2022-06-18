@@ -15,6 +15,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'anime_id',
         targetKey: 'id',
       });
+      this.hasMany(models.episodes, {
+        foreignKey: 'season_id',
+      });
     }
   }
   seasons.init({
@@ -25,6 +28,9 @@ module.exports = (sequelize, DataTypes) => {
     is_active:{
       type: DataTypes.BOOLEAN,
       defaultValue: true,
+    },
+    anime_id:{
+      type: DataTypes.INTEGER,
     },
   }, {
     sequelize,

@@ -82,7 +82,7 @@ class SeasonController {
       );
 
       return res.status(200).json({
-        message: `Se actualizo el anime de id: ${id}`,
+        message: `Se actualizo el season de id: ${id}`,
       });
     } catch (error) {
       return res.status(500).json({
@@ -100,7 +100,7 @@ class SeasonController {
         },
       });
       return res.status(200).json({
-        message: `Se eliminó el anime de id: ${id}`,
+        message: `Se eliminó el season de id: ${id}`,
       });
     } catch (error) {
       return res.status(500).json({
