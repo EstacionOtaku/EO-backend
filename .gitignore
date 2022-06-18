@@ -143,4 +143,8 @@ dist
 
 package-lock.json
 
+<<<<<<< HEAD
 # End of https://www.toptal.com/developers/gitignore/api/node
+=======
+# End of https://www.toptal.com/developers/gitignore/api/node
+>>>>>>> 99cd9034a97bca5b3180c95d688c2758dc13572c

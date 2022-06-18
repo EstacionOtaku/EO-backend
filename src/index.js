@@ -1,14 +1,12 @@
 import "dotenv/config";
-import app from "./app.js";
-import { sequelize } from "./config/database.js";
+import app from "./config/express";
 
-const port = process.env.NODE_PORT;
+const portDefault = 8000;
+const port = process.env.NODE_PORT || portDefault;
 
 const main = async () => {
-    // await sequelize.authenticate(); //validamos la conexion a la base de datos
-    await sequelize.sync({ force: false}); //sincronizamos los modelos con la base de datos
   app.listen(port, () => {
-    console.log(`Express Running... http://localhost:${port}`);
+    console.log(`Espress Running, Port: ${port}...`);
   });
 };
 
