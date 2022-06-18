@@ -26,6 +26,9 @@ app.use("/auth", authRoutes);
 app.use("/animes", animesRoutes);
 app.use("/categories", categoriesRoutes);
 app.use("/seasons", seasonsRoutes);
+<<<<<<< HEAD
 app.use("/episodes", episodesRoutes);
+=======
+>>>>>>> 399c930baa6415f0d68a42a53441fcce6131120c
 
 export default app;
