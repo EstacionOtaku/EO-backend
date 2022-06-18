@@ -37,6 +37,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(150),
         allowNull: true,
       },
+      description:{
+        type: DataTypes.STRING(255),
+      },
   }, 
   {
     sequelize,
