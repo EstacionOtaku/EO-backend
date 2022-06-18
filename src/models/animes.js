@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'category_id',
         targetKey: 'id',
       });
+      this.hasMany(models.seasons, {
+        foreignKey: 'anime_id',
+      });
     }
   }
   animes.init(

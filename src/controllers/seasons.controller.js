@@ -1,15 +1,14 @@
-import { animes, categories, seasons } from "../models";
+import { animes, seasons } from "../models";
 
-class AnimeController {
+class SeasonController {
   constructor() {
-    this.model = animes;
+    this.model = seasons;
   }
 
   async getAll(req, res) {
     try {
       const records = await this.model.findAll({
-        include: categories,
-        include: seasons,
+        include: animes,
       });
       return res.status(200).json(records);
     } catch (error) {
@@ -23,20 +22,14 @@ class AnimeController {
     try {
       const {
         name,
-        front_image,
-        description,
-        sample_image,
         is_active,
-        category_id,
+        anime_id,
       } = req.body;
 
       const record = await this.model.create({
         name,
-        front_image,
-        description,
-        sample_image,
         is_active,
-        category_id,
+        anime_id,
       });
 
       return res.status(201).json(record);
@@ -52,7 +45,7 @@ class AnimeController {
       const { id } = req.params;
 
       const record = await this.model.findOne({
-        include: categories,
+        include: animes,
         where: {
           id,
         },
@@ -71,21 +64,15 @@ class AnimeController {
       const { id } = req.params;
       const {
         name,
-        front_image,
-        description,
-        sample_image,
         is_active,
-        category_id,
+        anime_id,
       } = req.body;
 
       await this.model.update(
         {
-          name,
-          front_image,
-          description,
-          sample_image,
-          is_active,
-          category_id,
+        name,
+        is_active,
+        anime_id,
         },
         {
           where: {
@@ -121,6 +108,6 @@ class AnimeController {
       });
     }
   }
-}
+ }
 
-module.exports = AnimeController;
+module.exports = SeasonController;

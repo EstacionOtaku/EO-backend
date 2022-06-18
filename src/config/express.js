@@ -7,6 +7,7 @@ import rolesRoutes from "../routes/roles.routes";
 import authRoutes from "../routes/auth.routes";
 import animesRoutes from "../routes/animes.routes";
 import categoriesRoutes from '../routes/categories.routes';
+import seasonsRoutes from '../routes/seasons.routes';
 
 const app = express();
 app.use(morgan(process.env.NODE_LOG || "dev"));
@@ -23,5 +24,6 @@ app.use("/roles", rolesRoutes);
 app.use("/auth", authRoutes);
 app.use("/animes", animesRoutes);
 app.use("/categories", categoriesRoutes);
+app.use("/seasons", seasonsRoutes);
 
 export default app;
