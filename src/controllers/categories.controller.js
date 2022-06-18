@@ -1,4 +1,4 @@
-import { animes, categories, seasons } from "../models";
+import { animes, categories } from "../models";
 
 class CategoryController {
   constructor() {

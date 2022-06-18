@@ -8,7 +8,7 @@ class AnimeController {
   async getAll(req, res) {
     try {
       const records = await this.model.findAll({
-        include: categories,
+        // include: categories,
         include: seasons,
       });
       return res.status(200).json(records);
@@ -52,7 +52,7 @@ class AnimeController {
       const { id } = req.params;
 
       const record = await this.model.findOne({
-        include: categories,
+        include: seasons,
         where: {
           id,
         },

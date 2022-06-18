@@ -1,4 +1,4 @@
-import { animes, seasons } from "../models";
+import { episodes, seasons } from "../models";
 
 class SeasonController {
   constructor() {
@@ -8,7 +8,7 @@ class SeasonController {
   async getAll(req, res) {
     try {
       const records = await this.model.findAll({
-        include: animes,
+        include: episodes,
       });
       return res.status(200).json(records);
     } catch (error) {
@@ -45,7 +45,7 @@ class SeasonController {
       const { id } = req.params;
 
       const record = await this.model.findOne({
-        include: animes,
+        include: episodes,
         where: {
           id,
         },
