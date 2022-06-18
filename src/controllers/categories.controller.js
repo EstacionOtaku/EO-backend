@@ -1,4 +1,4 @@
-import { animes, categories } from "../models";
+import { animes, categories, seasons } from "../models";
 
 class CategoryController {
   constructor() {
@@ -8,7 +8,7 @@ class CategoryController {
   async getAll(req, res) {
     try {
       const records = await this.model.findAll({
-        include: animes,
+        include: animes, 
       });
       return res.status(200).json(records);
     } catch (error) {
