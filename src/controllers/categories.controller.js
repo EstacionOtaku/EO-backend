@@ -1,14 +1,14 @@
 import { animes, categories } from "../models";
 
-class AnimeController {
+class CategoryController {
   constructor() {
-    this.model = animes;
+    this.model = categories;
   }
 
   async getAll(req, res) {
     try {
       const records = await this.model.findAll({
-        include: categories,
+        include: animes,
       });
       return res.status(200).json(records);
     } catch (error) {
@@ -20,22 +20,13 @@ class AnimeController {
 
   async createRecord(req, res) {
     try {
-      const {
-        name,
-        front_image,
-        description,
-        sample_image,
-        is_active,
-        category_id,
-      } = req.body;
+      const { name, image, description, is_active } = req.body;
 
       const record = await this.model.create({
         name,
-        front_image,
+        image,
         description,
-        sample_image,
         is_active,
-        category_id,
       });
 
       return res.status(201).json(record);
@@ -51,7 +42,7 @@ class AnimeController {
       const { id } = req.params;
 
       const record = await this.model.findOne({
-        include: categories,
+        include: animes,
         where: {
           id,
         },
@@ -70,21 +61,17 @@ class AnimeController {
       const { id } = req.params;
       const {
         name,
-        front_image,
+        image,
         description,
-        sample_image,
         is_active,
-        category_id,
       } = req.body;
 
       await this.model.update(
         {
-          name,
-          front_image,
-          description,
-          sample_image,
-          is_active,
-          category_id,
+            name,
+            image,
+            description,
+            is_active,
         },
         {
           where: {
@@ -94,7 +81,7 @@ class AnimeController {
       );
 
       return res.status(200).json({
-        message: `Se actualizo el anime de id: ${id}`,
+        message: `Se actualizo la categoria de id: ${id}`,
       });
     } catch (error) {
       return res.status(500).json({
@@ -112,7 +99,7 @@ class AnimeController {
         },
       });
       return res.status(200).json({
-        message: `Se eliminó el anime de id: ${id}`,
+        message: `Se eliminó la categoria de id: ${id}`,
       });
     } catch (error) {
       return res.status(500).json({
@@ -122,4 +109,4 @@ class AnimeController {
   }
 }
 
-module.exports = AnimeController;
+module.exports = CategoryController;

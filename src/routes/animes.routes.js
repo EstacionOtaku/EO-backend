@@ -5,5 +5,9 @@ const router = Router();
 const animeController = new AnimeController();
 
 router.get("/", (req, res) => animeController.getAll(req, res));
+router.post("/", (req, res) => animeController.createRecord(req, res));
+router.get("/:id", (req, res) => animeController.getById(req, res));
+router.put("/:id", (req, res) => animeController.updateRecord(req, res));
+router.delete("/:id", (req, res) => animeController.deleteRecord(req, res));
 
 export default router;
