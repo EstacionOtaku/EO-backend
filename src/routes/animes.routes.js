@@ -1,9 +1,9 @@
 import { Router } from 'express';
 import AnimeController from '../controllers/animes.controller';
 
-const router =Router();
-const AnimeController = new AnimeController();
+const router = Router();
+const animeController = new AnimeController();
 
-router.get("/", (req, res) => AnimeController.getAll(req, res));
+router.get("/", (req, res) => animeController.getAll(req, res));
 
 export default router;
