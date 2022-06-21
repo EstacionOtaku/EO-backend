@@ -6,7 +6,7 @@ const port = process.env.NODE_PORT || portDefault;
 
 const main = async () => {
   app.listen(port, () => {
-    console.log(`Espress Running, Port: ${port}...`);
+    console.log(`Espress Running, in http://localhost:${port} ...`);
   });
 };
 
