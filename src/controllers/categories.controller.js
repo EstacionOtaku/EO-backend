@@ -7,7 +7,9 @@ class CategoryController {
 
   async getAll(req, res) {
     try {
-      const records = await this.model.findAll({
+      const records = await this.model.findAndCountAll({
+        limit:7,
+        offset:0,
         include: {
           model: animes,
           include: {

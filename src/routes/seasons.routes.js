@@ -1,9 +1,11 @@
 import { Router } from 'express';
 import SeasonController from '../controllers/seasons.controller';
+import authentication from "../middlewares/authentication";
 
 const router = Router();
 const seasonController = new SeasonController();
 
+router.use(authentication);
 router.get("/", (req, res) => seasonController.getAll(req, res));
 router.post("/", (req, res) => seasonController.createRecord(req, res));
 router.get("/:id", (req, res) => seasonController.getById(req, res));
