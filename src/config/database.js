@@ -8,7 +8,7 @@ module.exports = {
     dialect: process.env.DB_CONNECTION,
   },
   production: {
-    url: "DATABASE_URL",
+    use_env_variable: "DATABASE_URL",
     dialect: process.env.DATABASE_CONNECTION,
     dialectOptions: {
       ssl: {
